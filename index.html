@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>Sign Up Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="landing-page">
+      <div class="image-background">
+        <div class="modal">
+          <div class="logo">
+            <img src="./Assets/logo.png" alt="Logo">
+            <p class="logo-text">ODIN</p>
+          </div>
+        </div>
+        <img src="./Assets/background.jpg" alt="Background Image">
+      </div>
+      <div class="content">
+        <div class="text-content">
+            <h2>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up now to get started.</h2>
+            <h2>You know you want to.</h2>
+        </div>
+        <div class="form-container">
+          
+          <form>
+            <figcaption><strong>Let's do this!</strong></figcaption>
+            <div class="form-controls">
+            <div class="form-column">
+              <div class="form-element">
+               <label for="name">First Name*</label>
+               <input type="text"  id="first_name" name="first_name" required>
+              </div>
+              <div class="form-element">
+               <label for="email">Email*</label>
+               <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required id="email" name="email">
+              </div>
+              <div class="form-element">
+               <label for="password">Password*</label>
+               <input type="password" id="password" required name="password">
+               <p>*Passwords do not match</p>
+              </div>
+            </div>
+          <div class="form-column">
+            <div class="form-element">
+              <label for="name">Last Name</label>
+              <input type="text" id="last_name" name="last_name">
+            </div>
+            <div class="form-element">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone_number" name="phone_number">
+            </div>
+            <div class="form-element">
+              <label for="confirm_password">Confirm Password*</label>
+              <input type="password" id="confirm_password" name="confirm_password">
+              <p></p>
+            </div>
+           </div>
+           </div>
+            <button id="submit_btn" type="submit" value="Sign Up">Create Account</button>
+            <p>Already have an account? <a href="">Log in</a></p>
+          </form> 
+        </div>
+    </div>
+    </div>
+  </body>
+  <script>
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirm_password");
+    const submitBtn = document.getElementById("submit_btn")
+
+    
+    function checkPasswordInput(e){
+        if(passwordInput.value != confirmPasswordInput.value){
+            passwordInput.classList.add("invalid")
+            confirmPasswordInput.classList.add("invalid")
+            e.preventDefault()
+        }else{
+            passwordInput.classList.remove("invalid")
+            confirmPasswordInput.classList.remove("invalid")
+        }
+    }
+
+    submitBtn.addEventListener("click", checkPasswordInput)
+  </script>
+</html>
